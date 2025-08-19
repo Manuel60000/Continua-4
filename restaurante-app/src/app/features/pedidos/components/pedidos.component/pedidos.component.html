@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Pedidos - Listado</h2>
+  <button (click)="goAdd()">Agregar</button>
+  <div *ngIf="loading">Cargando...</div>
+  <table *ngIf="!loading">
+    <thead><tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let i of items">
+        <td>{i.id}</td>
+        <td>{i.nombre}</td>
+        <td>{i.descripcion}</td>
+        <td>
+          <button (click)="goUpdate(i)">Editar</button>
+          <button (click)="delete(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

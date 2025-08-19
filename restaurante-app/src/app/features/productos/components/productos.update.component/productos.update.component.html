@@ -1,0 +1,9 @@
+<div class="container" *ngIf="!loading">
+  <h3>Editar Productos</h3>
+  <label>Nombre</label>
+  <input [(ngModel)]="model.nombre" />
+  <label>Descripción</label>
+  <input [(ngModel)]="model.descripcion" />
+  <button (click)="save()">Guardar</button>
+</div>
+<div *ngIf="loading">Cargando...</div>
