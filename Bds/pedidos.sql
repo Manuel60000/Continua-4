@@ -1,0 +1,19 @@
+
+CREATE DATABASE pedidosdb;
+USE pedidosdb;
+
+CREATE TABLE IF NOT EXISTS pedidos (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id BIGINT NOT NULL,
+  fecha DATE NOT NULL,
+  total DECIMAL(10,2) DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS pedido_items (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  pedido_id BIGINT NOT NULL,
+  producto_id BIGINT NOT NULL,
+  cantidad INT NOT NULL,
+  precio DECIMAL(10,2) DEFAULT 0,
+  FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE
+);
